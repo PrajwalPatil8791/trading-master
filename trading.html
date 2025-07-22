@@ -3,116 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwingTrader Pro | Stock & Crypto Swing Trading Signals</title>
+    <title>Professional Swing Trading Signals</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo" onclick="navigateTo('home')">
-                Swing<span>Trader</span>
-            </div>
+            <div class="logo">Swing<span>Trader</span></div>
             <div class="nav-links">
-                <a onclick="navigateTo('home')">Home</a>
-                <a onclick="navigateTo('signals')">Signals</a>
-                <a onclick="navigateTo('screener')">Screener</a>
-                <a onclick="navigateTo('education')">Education</a>
-                <a onclick="navigateTo('pricing')">Pricing</a>
-                <button class="cta-button" onclick="showLoginModal()">Login</button>
+                <a href="#home">Home</a>
+                <a href="#signals">Signals</a>
+                <a href="#screener">Screener</a>
+                <a href="#education">Education</a>
+                <button class="cta-button" id="loginBtn">Login</button>
             </div>
-            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
         </nav>
     </header>
-    
-    <section class="hero">
+
+    <section class="hero" id="home">
         <h1>Professional Swing Trading Signals</h1>
         <p>Get high-probability stock and crypto swing trade alerts with detailed entry, target, and stop-loss levels.</p>
-        <button class="cta-button" onclick="showSignupModal()">Start Free Trial</button>
+        <button class="cta-button" id="signupBtn">Start Free Trial</button>
     </section>
-    
-    <div class="container">
-        <section class="features">
-            <div class="feature-card" onclick="navigateTo('signals')">
-                <div class="feature-icon">📈</div>
-                <h3>Daily Swing Signals</h3>
-                <p>Receive 3-5 high-quality swing trade setups daily with detailed analysis.</p>
-            </div>
-            <div class="feature-card" onclick="navigateTo('screener')">
-                <div class="feature-icon">📊</div>
-                <h3>Technical Screener</h3>
-                <p>Our scanner identifies stocks with breakout patterns before they move.</p>
-            </div>
-            <div class="feature-card" onclick="navigateTo('education')">
-                <div class="feature-icon">📚</div>
-                <h3>Swing Trading Course</h3>
-                <p>Master swing trading with our comprehensive video course.</p>
-            </div>
-        </section>
-        
-        <section class="market-data">
-            <h2>Today's Market Overview</h2>
-            <div class="table-container">
-                <table id="marketDataTable">
-                    <!-- JS will populate this -->
-                </table>
-            </div>
-        </section>
-    </div>
 
-    <!-- Modals -->
+    <section class="features">
+        <div class="feature-card">
+            <h2>Daily Swing Signals</h2>
+            <p>Receive 3-5 high-quality swing trade setups daily with detailed analysis.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Technical Screener</h2>
+            <p>Our scanner identifies stocks with breakout patterns before they move.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Swing Trading Course</h2>
+            <p>Master swing trading with our comprehensive video course.</p>
+        </div>
+    </section>
+
+    <section class="market-data">
+        <h2>Today's Market Overview</h2>
+        <div id="marketTable"></div>
+    </section>
+
+    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            <span class="close">&times;</span>
             <h2>Login to SwingTrader</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
                 </div>
-                <button type="button" class="cta-button" onclick="handleLogin()">Login</button>
+                <button type="submit" class="cta-button">Login</button>
             </form>
         </div>
     </div>
-
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('signupModal')">&times;</span>
-            <h2>Start Your Free Trial</h2>
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="signupName">Full Name</label>
-                    <input type="text" id="signupName" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail">Email</label>
-                    <input type="email" id="signupEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" required>
-                </div>
-                <button type="button" class="cta-button" onclick="handleSignup()">Start Free Trial</button>
-            </form>
-        </div>
-    </div>
-    
-    <footer>
-        <div class="logo" onclick="navigateTo('home')">
-            Swing<span>Trader</span>
-        </div>
-        <div class="footer-links">
-            <a onclick="navigateTo('about')">About Us</a>
-            <a onclick="navigateTo('contact')">Contact</a>
-            <a onclick="navigateTo('terms')">Terms</a>
-            <a onclick="navigateTo('privacy')">Privacy</a>
-        </div>
-        <p>© 2023 SwingTrader.com. All rights reserved.</p>
-        <p class="disclaimer">Disclaimer: Trading involves risk. Past performance is not indicative of future results.</p>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>
