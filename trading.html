@@ -4,255 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwingTrader Pro | Stock & Crypto Swing Trading Signals</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --accent: #f59e0b;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f8fafc;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .cta-button {
-            background-color: var(--accent);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 0.25rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .cta-button:hover {
-            background-color: #e67e22;
-            transform: translateY(-2px);
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 1rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1rem;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .market-data {
-            background: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin: 3rem 0;
-        }
-        
-        .market-data h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        th {
-            background-color: var(--light);
-            font-weight: 600;
-        }
-        
-        .positive {
-            color: #10b981;
-        }
-        
-        .negative {
-            color: #ef4444;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -268,12 +20,13 @@
                 <a onclick="navigateTo('pricing')">Pricing</a>
                 <button class="cta-button" onclick="showLoginModal()">Login</button>
             </div>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
         </nav>
     </header>
     
     <section class="hero">
         <h1>Professional Swing Trading Signals</h1>
-        <p>Get high-probability stock and crypto swing trade alerts with detailed entry, target, and stop-loss levels. Our proprietary algorithm identifies the best risk-reward opportunities.</p>
+        <p>Get high-probability stock and crypto swing trade alerts with detailed entry, target, and stop-loss levels.</p>
         <button class="cta-button" onclick="showSignupModal()">Start Free Trial</button>
     </section>
     
@@ -282,104 +35,67 @@
             <div class="feature-card" onclick="navigateTo('signals')">
                 <div class="feature-icon">📈</div>
                 <h3>Daily Swing Signals</h3>
-                <p>Receive 3-5 high-quality swing trade setups daily across stocks, crypto, and forex markets with detailed analysis.</p>
+                <p>Receive 3-5 high-quality swing trade setups daily with detailed analysis.</p>
             </div>
             <div class="feature-card" onclick="navigateTo('screener')">
                 <div class="feature-icon">📊</div>
                 <h3>Technical Screener</h3>
-                <p>Our advanced scanner identifies stocks with breakout patterns, RSI divergences, and volume spikes before they move.</p>
+                <p>Our scanner identifies stocks with breakout patterns before they move.</p>
             </div>
             <div class="feature-card" onclick="navigateTo('education')">
                 <div class="feature-icon">📚</div>
                 <h3>Swing Trading Course</h3>
-                <p>Master swing trading with our comprehensive video course covering chart patterns, risk management, and psychology.</p>
+                <p>Master swing trading with our comprehensive video course.</p>
             </div>
         </section>
         
         <section class="market-data">
             <h2>Today's Market Overview</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Price</th>
-                        <th>Change</th>
-                        <th>Volume</th>
-                        <th>RSI (14)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>NIFTY 50</td>
-                        <td>19,425.35</td>
-                        <td class="positive">+0.78%</td>
-                        <td>1.2B</td>
-                        <td>58.2</td>
-                    </tr>
-                    <tr>
-                        <td>BTC/USD</td>
-                        <td>29,856.00</td>
-                        <td class="positive">+2.34%</td>
-                        <td>24.5B</td>
-                        <td>62.1</td>
-                    </tr>
-                    <tr>
-                        <td>RELIANCE</td>
-                        <td>2,456.90</td>
-                        <td class="negative">-1.23%</td>
-                        <td>3.4M</td>
-                        <td>45.7</td>
-                    </tr>
-                    <tr>
-                        <td>TATASTEEL</td>
-                        <td>115.75</td>
-                        <td class="positive">+3.45%</td>
-                        <td>12.8M</td>
-                        <td>67.3</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table id="marketDataTable">
+                    <!-- JS will populate this -->
+                </table>
+            </div>
         </section>
     </div>
 
-    <!-- Login Modal -->
+    <!-- Modals -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
             <h2>Login to SwingTrader</h2>
-            <form id="loginForm" style="margin-top: 1.5rem;">
-                <div style="margin-bottom: 1rem;">
-                    <label for="loginEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-                    <input type="email" id="loginEmail" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
                 </div>
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
-                    <input type="password" id="loginPassword" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;">
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
                 </div>
-                <button type="button" class="cta-button" onclick="handleLogin()" style="width: 100%;">Login</button>
+                <button type="button" class="cta-button" onclick="handleLogin()">Login</button>
             </form>
         </div>
     </div>
 
-    <!-- Signup Modal -->
     <div id="signupModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('signupModal')">&times;</span>
             <h2>Start Your Free Trial</h2>
-            <form id="signupForm" style="margin-top: 1.5rem;">
-                <div style="margin-bottom: 1rem;">
-                    <label for="signupName" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full Name</label>
-                    <input type="text" id="signupName" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;">
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
                 </div>
-                <div style="margin-bottom: 1rem;">
-                    <label for="signupEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-                    <input type="email" id="signupEmail" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;">
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
                 </div>
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="signupPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
-                    <input type="password" id="signupPassword" required style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;">
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
                 </div>
-                <button type="button" class="cta-button" onclick="handleSignup()" style="width: 100%;">Start Free Trial</button>
+                <button type="button" class="cta-button" onclick="handleSignup()">Start Free Trial</button>
             </form>
         </div>
     </div>
@@ -393,79 +109,11 @@
             <a onclick="navigateTo('contact')">Contact</a>
             <a onclick="navigateTo('terms')">Terms</a>
             <a onclick="navigateTo('privacy')">Privacy</a>
-            <a onclick="navigateTo('blog')">Blog</a>
         </div>
         <p>© 2023 SwingTrader.com. All rights reserved.</p>
-        <p><small>Disclaimer: Trading in financial markets involves risk. Past performance is not indicative of future results.</small></p>
+        <p class="disclaimer">Disclaimer: Trading involves risk. Past performance is not indicative of future results.</p>
     </footer>
 
-    <script>
-        // Navigation function
-        function navigateTo(page) {
-            // In a real application, this would route to different pages
-            console.log(`Navigating to ${page}`);
-            alert(`In a complete application, this would take you to the ${page} page.`);
-            
-            // Close any open modals when navigating
-            closeAllModals();
-        }
-
-        // Modal functions
-        function showLoginModal() {
-            document.getElementById('loginModal').style.display = 'block';
-        }
-
-        function showSignupModal() {
-            document.getElementById('signupModal').style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function closeAllModals() {
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('signupModal').style.display = 'none';
-        }
-
-        // Form handling functions
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            // Basic validation
-            if (!email || !password) {
-                alert('Please enter both email and password');
-                return;
-            }
-            
-            console.log('Login attempt with:', { email, password });
-            alert('Login functionality would be implemented in a real application');
-            closeModal('loginModal');
-        }
-
-        function handleSignup() {
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            
-            // Basic validation
-            if (!name || !email || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            console.log('Signup attempt with:', { name, email, password });
-            alert('Account created! (This would connect to a backend in a real application)');
-            closeModal('signupModal');
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                closeAllModals();
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
