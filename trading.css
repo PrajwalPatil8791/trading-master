@@ -4,8 +4,6 @@
     --accent: #f59e0b;
     --dark: #1f2937;
     --light: #f3f4f6;
-    --success: #10b981;
-    --danger: #ef4444;
 }
 
 * {
@@ -25,10 +23,9 @@ header {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     padding: 1rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 }
 
 nav {
@@ -42,9 +39,6 @@ nav {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 }
 
 .logo span {
@@ -54,35 +48,24 @@ nav {
 .nav-links {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-.mobile-menu-btn {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
 }
 
 .cta-button {
     background-color: var(--accent);
     color: white;
     padding: 0.5rem 1.5rem;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
     border: none;
+    border-radius: 4px;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
@@ -91,149 +74,89 @@ nav {
 }
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    text-align: center;
+    padding: 5rem 1rem;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                 url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     color: white;
-    padding: 0 1rem;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin-bottom: 2rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
 }
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 3rem 0;
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .feature-card {
     background: white;
-    border-radius: 0.5rem;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
+.feature-card h2 {
     color: var(--primary);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.feature-icon {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .market-data {
-    background: white;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin: 3rem 0;
-}
-
-.market-data h2 {
-    color: var(--primary);
-    margin-bottom: 1.5rem;
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.table-container {
-    overflow-x: auto;
+.market-data h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--primary);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-th {
-    background-color: var(--light);
-    font-weight: 600;
-}
-
-.positive {
-    color: var(--success);
-}
-
-.negative {
-    color: var(--danger);
-}
-
-/* Modal styles */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {
     background-color: white;
     margin: 10% auto;
     padding: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    max-width: 400px;
     position: relative;
-    animation: modalFadeIn 0.3s;
 }
 
-@keyframes modalFadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-.close-modal {
+.close {
     position: absolute;
     top: 1rem;
     right: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--dark);
 }
 
 .form-group {
@@ -249,71 +172,17 @@ th {
 .form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 1rem;
 }
 
-/* Footer */
-footer {
-    background-color: var(--dark);
-    color: white;
-    padding: 3rem 1rem;
-    text-align: center;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.footer-links a:hover {
-    color: var(--accent);
-}
-
-.disclaimer {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    margin-top: 1rem;
-}
-
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--secondary);
-        flex-direction: column;
-        padding: 1rem;
         gap: 1rem;
     }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
+    
     .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .modal-content {
-        margin: 20% auto;
-        width: 95%;
+        font-size: 2rem;
     }
 }
